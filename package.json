@@ -4,7 +4,9 @@
   "description": "Starting point for creating a rest api with express.",
   "main": "index.js",
   "scripts": {
-    "start": "node src/index.js",
+    "dev": "nodemon --exec babel-node src",
+    "build": "babel src --out-dir dist",
+    "start": "node dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -24,5 +26,11 @@
   "dependencies": {
     "express": "^4.17.1",
     "http": "0.0.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/node": "^7.5.5",
+    "@babel/preset-env": "^7.5.5"
   }
 }
