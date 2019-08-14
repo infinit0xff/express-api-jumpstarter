@@ -1,6 +1,7 @@
 import http from 'http';
 import express from 'express';
 import routes from './routes';
+import config from './config';
 
 let app = express();
 app.server = http.createServer(app);
@@ -13,7 +14,7 @@ app.use('/',(req, res, next) => {
     res.redirect(302, '/v1');
 });
 
-app.server.listen(3000, (err, status) => {
+app.server.listen(process.env.PORT || config.port, (err, status) => {
     if(err){
         // handle server start error.
     }
