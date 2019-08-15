@@ -9,9 +9,9 @@ app.server = http.createServer(app);
 // '/v1' routes.
 app.use('/v1', routes);
 
-// redirect '/' to '/v1'.
-app.use('/',(req, res, next) => {
-    res.redirect(302, '/v1');
+// display banner on '/' route.
+app.get('/',(req, res, next) => {
+    res.send('API is Alive!');
 });
 
 app.server.listen(process.env.PORT || config.port, (err, status) => {
