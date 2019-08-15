@@ -11,14 +11,14 @@ initializeDb(db => {
 	// internal middleware for '/v1'.
 	router.use(middleware({ config, db }));
 
-	router.use('/',(req, res, next) => {
+	router.get('/',(req, res, next) => {
 		res.status(200).json({
 			name: packageInfo.name,
 			description: packageInfo.description,
 			version: packageInfo.version
 		}); 
 	});
-		
+	
 });
 
 export default router;
